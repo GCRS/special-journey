@@ -5,10 +5,11 @@
 
 ##Get Token
 `/auth/login` **POST**
-| Parameters | Value |
+
+| Parameters|Value|
 |------------|-------|
-|Email       |giansantillan18@gmail.com|
-|Password   |123456|
+|Email|giansantillan18@gmail.com|
+|Password|123456|
 
 ```json
 
