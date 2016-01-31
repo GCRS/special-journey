@@ -11,7 +11,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $repositories = config()->get('repository.models');
 
         foreach ($repositories as $repository) {
-            $this->app->bind('App\Journey\Repository\Repositories\\' . $repository . 'Repository', 'App\Journey\Repository\Repositories\\' . $repository . '\Eloquent' . $repository . 'Repository' );
+            $this->app->bind('App\Journey\Repositories\\' . $repository . 'Repository', 'App\Journey\Repositories\\' . $repository . '\Eloquent' . $repository . 'Repository' );
         }
 
     }

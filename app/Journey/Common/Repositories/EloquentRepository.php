@@ -2,8 +2,18 @@
 
 namespace App\Journey\Common\Repositories;
 
+use Illuminate\Database\Eloquent\Model;
+
 abstract class EloquentRepository
 {
+
+    private $model;
+
+    public function __construct(Model $model)
+    {
+        $this->model = $model;
+    }
+
     /**
      * @param $id
      * @param array|null $with
