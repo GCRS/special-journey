@@ -12,7 +12,12 @@
 |Password|123456|
 
 ```json
-
+{
+  "success": true,
+  "data": {
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdDo4MDAwXC9hdXRoXC9sb2dpbiIsImlhdCI6MTQ1NDI0OTc5MSwiZXhwIjoxNDU0NDY1NzkxLCJuYmYiOjE0NTQyNDk3OTEsImp0aSI6ImRmZmEyMmQyYTkzNDlkZjJkM2JiNzczNjhjYzcyYTJjIn0.eb64PU5Pn4hO49a8LRGRvistSwXUT14DpQQ0J4HrDWA"
+  }
+}
 ```
 
 #User Scopes
