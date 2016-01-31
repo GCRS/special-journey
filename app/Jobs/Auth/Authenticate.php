@@ -6,13 +6,13 @@ use App\Jobs\Job;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Contracts\Bus\SelfHandling;
 
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
-class Authenticate extends Job implements ShouldQueue
+class Authenticate extends Job implements SelfHandling
 {
-    use InteractsWithQueue, SerializesModels;
 
     private $input;
     /**
@@ -33,16 +33,13 @@ class Authenticate extends Job implements ShouldQueue
     public function handle()
     {
         $credentials = $this->input;
-
         try {
-            if ($token = JWTAuth::attempt($credentials)) {
+            if (!$token = JWTAuth::attempt($credentials)) {
                 return false;
             }
+            return $token;
         } catch (JWTException $exs) {
             return false;
         }
-
-        return $token;
-
     }
 }
