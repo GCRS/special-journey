@@ -10,6 +10,8 @@ use Illuminate\Foundation\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+
 class Handler extends ExceptionHandler
 {
     /**
@@ -46,6 +48,17 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if ($e instanceof NotFoundHttpException) {
+            return response()->json(['message' => 'page not found'], 404);
+        }
+
+        if ($e instanceof Tymon\JWTAuth\Exceptions\TokenExpiredException) {
+            return response()->json(['token_expired'], $e->getStatusCode());
+        } else if ($e instanceof Tymon\JWTAuth\Exceptions\TokenInvalidException) {
+            return response()->json(['token_invalid'], $e->getStatusCode());
+        }
+
         return parent::render($request, $e);
+
     }
 }
