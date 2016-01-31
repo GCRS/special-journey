@@ -5,14 +5,12 @@ namespace App\Jobs\Me\Organization;
 use App\Jobs\Job;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Contracts\Bus\SelfHandling;
 
 use App\Journey\Repositories\UserRepository;
 
-class GetOrganization extends Job implements ShouldQueue
+class GetOrganization extends Job implements SelfHandling
 {
-    use InteractsWithQueue, SerializesModels;
-
     /**
      * Create a new job instance.
      *

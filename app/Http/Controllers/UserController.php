@@ -11,5 +11,10 @@ class UserController extends Controller
     public function getMyOrganization()
     {
         $response = $this->dispatch(new GetOrganization());
+
+        return response()->json([
+            'data' => $response
+        ]);
+
     }
 }
