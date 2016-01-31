@@ -17,4 +17,7 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
 
 Route::group(['middleware' => ['jwt.auth', 'jwt.user']], function () {
     Route::get('me', 'Auth\AuthController@getMe');
+    Route::get('me/organization', 'UserController@getMyOrganization');
+
+
 });
