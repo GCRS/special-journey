@@ -29,4 +29,9 @@ class AuthController extends Controller
       ]);
 
   }
+
+  public function getMe()
+  {
+      return app('user');
+  }
 }

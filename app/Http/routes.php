@@ -15,6 +15,6 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
   Route::post('login', 'AuthController@postAuthenticate');
 });
 
-Route::group(['middleware' => ''], function () {
-
+Route::group(['middleware' => ['jwt.auth', 'jwt.user']], function () {
+    Route::get('me', 'Auth\AuthController@getMe');
 });
